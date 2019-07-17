@@ -53,11 +53,11 @@ def find_files_with_same_name(path):
     return files
 
 
-def group_by_size(filepath):
-    size_filepaths = [(path, os.path.getsize(path)) for path in filepath]
-    size_filepaths.sort(key=lambda path: path[1])
-    for key, group in groupby(size_filepaths, lambda path: path[1]):
-        yield list(g[0] for g in group)
+def group_by_size(filepaths):
+    filepaths_sizes = [(path, os.path.getsize(path)) for path in filepaths]
+    filepaths_sizes.sort(key=lambda path: path[1])
+    for key, filepaths in groupby(filepaths_sizes, lambda path: path[1]):
+        yield list(filepath[0] for filepath in filepaths)
 
 
 if __name__ == '__main__':
