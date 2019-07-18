@@ -24,7 +24,8 @@ python duplicates.py /homme/user/
 ```
 
 ```sh
-python duplicates.py /home/t/source/ 
+python duplicates.py /home/t/source/
+
 /home/t/source/main.py
 /home/t/source/TEST/main.py
 ```
