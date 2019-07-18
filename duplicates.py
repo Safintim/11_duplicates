@@ -37,8 +37,8 @@ def find_files_with_same_name(path):
     for current_dir, dirnames, filenames in os.walk(path):
         for filename in filenames:
             filepath = os.path.join(current_dir, filename)
-            filenam_filesize = (filename, os.path.getsize(filepath))
-            files[filenam_filesize].append(filepath)
+            filename_filesize = (filename, os.path.getsize(filepath))
+            files[filename_filesize].append(filepath)
     return files
 
 
