@@ -6,17 +6,12 @@ from itertools import groupby
 def main():
     parser = create_parser()
     namespace = parser.parse_args()
-    if not namespace.path:
-        exit('Укажите правильный путь каталога')
-
     print('\n'.join(get_duplicate_files(namespace.path)))
 
 
 def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('path',
-                        nargs='?',
-                        default=False,
                         type=is_directory,
                         help='Path to directory')
     return parser
@@ -25,6 +20,7 @@ def create_parser():
 def is_directory(path):
     if os.path.isdir(path):
         return path
+    raise argparse.ArgumentTypeError('directory not found')
 
 
 def get_duplicate_files(path):
